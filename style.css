@@ -72,14 +72,21 @@ input {
 button {
     margin: 8px;
     padding: 2px 8px;
-    background-color: rgba(255, 120, 90, 0.5);
+    background-color: rgba(255, 120, 90, 1);
     color: white;
     border: none;
     cursor: pointer;
+    box-shadow: 0 3px rgb(132, 60, 44);
 }
 
 button:hover {
-    background-color: rgba(255, 120, 90, 1);
+    background-color: rgba(255, 120, 90, 0.8);
+}
+
+button:active {
+    position: relative;
+    box-shadow: none;
+    top: 3px;
 }
 
 /* 商品情報一覧 -------------------------------------------------- */
@@ -94,3 +101,5 @@ li {
     font-size: 24px;
     margin: 8px 32px;
 }
+
+/* スマホ用レイアウト -------------------------------------------------- */

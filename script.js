@@ -75,7 +75,7 @@ const itemAdd = () => {
     document.getElementById("itemPrice").value = "";
 }
 
-//削除ボタンを作成
+//商品情報を一括削除する関数
 const itemDelete = () => {
     let list = document.getElementById("shoppingList");
 
@@ -90,6 +90,28 @@ const itemDelete = () => {
     localStorage.removeItem("totalPrice");
 }
 
+//保存したデータをCSV出力する関数
+const exportCSV = () => {
+    let savedItems = JSON.parse(localStorage.getItem("shoppingData"));
+    if (!savedItems || savedItems === 0) {
+        alert("データがありません！");
+        return;
+    }
+
+    let csvContent = "商品名,価格\n";
+    savedItems.forEach(item => {
+        csvContent += `${item.name},${item.price}\n`;
+    });
+
+    let blob = new Blob([csvContent], {type: "text/csv"});
+
+    let a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "shopping-List.csv";
+    a.click();
+}
+
+
 //機能の追加----------------------------------------------------------------------------------------------------
 
 //ページを開いたときにデータを復元
@@ -103,3 +125,6 @@ document.getElementById("deleteItem").addEventListener("click", itemDelete);
 
 //データを保存
 document.getElementById("save").addEventListener("click", saveData);
+
+//出力ボタンの機能を追加
+document.getElementById("export").addEventListener("click", exportCSV);

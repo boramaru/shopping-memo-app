@@ -63,9 +63,20 @@ const itemAdd = () => {
     let li = document.createElement("li");
     li.innerHTML = `${itemName} - ${itemPrice}円`;
     
-    //リストに追加
+    //個別削除ボタンを追加
+    let itemDelete = document.createElement("button");
+    itemDelete.textContent = "削除";
+    itemDelete.addEventListener("click", () => {
+        li.remove();
+        total -= itemPrice;
+        document.getElementById("totalPrice").textContent = total;
+        saveData();
+    });
+
+    li.appendChild(itemDelete);
+
     document.getElementById("shoppingList").appendChild(li);
-    
+
     //合計金額を更新
     total += itemPrice;
     document.getElementById("totalPrice").textContent = total;

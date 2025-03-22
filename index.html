@@ -9,22 +9,22 @@
     <body>
         <header>
             <h1>購入商品一覧</h1>
+            <div class="header-button">
+                <button id="deleteItem">一括削除</button>
+                <button id="save">保存</button>
+                <button id="export">出力</button>
+            </div>
         </header>
         <div class="shopping-list">
             <ul id="shoppingList"></ul>
         </div>
         <footer>
-            <div class="input-form">
+            <div class="footer-button">
                 <input type="text" id="itemName" placeholder="商品名">
                 <input type="number" id="itemPrice" placeholder="価格">
-            </div>
-            <div class="button-form">
                 <button id="addItem">追加</button>
-                <button id="deleteItem">削除</button>
-                <button id="save">保存</button>
-                <button id="export">出力</button>
             </div>
-            <h1>合計金額： <span id="totalPrice">0</span>円</h1>
+            <h1>合計:  <span id="totalPrice">0</span>円</h1>
         </footer>
         <script src="script.js"></script>
     </body>

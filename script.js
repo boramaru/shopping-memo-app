@@ -35,9 +35,21 @@ const loadData = () => {
 // **リストにアイテムを追加する関数**
 const addItemToList = (name, price, save = true) => {
     let li = document.createElement("li");
-    li.innerHTML = `${name} - ${price}円 `;
+    li.innerHTML = `${name} - ${price}円`;
+
+    //個別削除ボタンを追加
+    let itemDelete = document.createElement("button");
+    itemDelete.textContent = "削除";
+    itemDelete.addEventListener("click", () => {
+        li.remove();
+        total -= price;
+        document.getElementById("totalPrice").textContent = total;
+        saveData();
+    });
+    li.appendChild(itemDelete);
 
     document.getElementById("shoppingList").appendChild(li);
+
 }
 
 //商品情報の追加の関数

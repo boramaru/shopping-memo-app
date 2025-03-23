@@ -11,12 +11,13 @@ body {
 
 /* header -------------------------------------------------- */
 header {
+    position: fixed;
     z-index: 300;
     max-width: 1600px;
     left: 0;
     right: 0;
     padding-top: 8px;
-    border-bottom: 1px solid rgb(107, 107, 107);
+    border-bottom: 1px solid rgba(107, 107, 107, 0.5);
     background-color: #fff4e7;
 }
 
@@ -33,11 +34,9 @@ header h1 {
 
 /* shopping-list -------------------------------------------------- */
 .shopping-list {
-    margin: 20px 160px; 
-    max-height: calc(100vh - 240px);
+    margin: 100px 180px 160px; 
+    max-height: calc(100vh - 260px);
     overflow-y: auto;
-    border-left:1px solid rgb(225, 225, 225);
-    border-right:1px solid rgb(225, 225, 225);
 }
 
 
@@ -51,7 +50,7 @@ footer {
     right: 0;
     margin: 0 auto;
     padding-bottom: 40px;
-    border-top: 1px solid rgb(107, 107, 107);
+    border-top: 1px solid rgba(107, 107, 107, 0.5);
     background-color: #fff4e7;
 }
 
@@ -70,6 +69,7 @@ input {
     width: 200px;
     margin: 8px;
     padding: 8px;
+    border: 1px solid rgba(107, 107, 107, 0.5)
 }
 
 button {
@@ -107,5 +107,58 @@ li button {
 /* スマホ用レイアウト -------------------------------------------------- */
 
 @media screen and (max-width: 600px) {
+/* header -------------------------------------------------- */
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 4px;
+}
 
-}    
+header h1 {
+    line-height: 7px;
+    padding-left: 16px;
+    font-size: 28px;
+}
+
+.header-button {
+    margin: 8px 0;
+    padding: 0;
+}
+
+/* shopping-list -------------------------------------------------- */    
+.shopping-list {
+    margin: 100px 16px 120px; /* 上にヘッダー分、下にフッター分の余白 */
+    height: calc(100vh - 220px); /* vh - (header + footer) */
+    overflow-y: auto;
+}
+
+/* footer -------------------------------------------------- */
+.footer-button {
+    width: 100%;
+    margin: 8px 0;
+}
+
+footer h1 {
+    margin: 4px 16px;
+    padding: 0;
+}
+
+
+/* フォーム部品 -------------------------------------------------- */
+input {
+    width: 130px;
+    margin: 8px;
+    padding: 8px;
+}
+
+button {
+    margin: 0;
+    padding: 2px 8px;
+}
+
+.add-item {
+    border: 1px solid rgba(107, 107, 107, 0.5);
+}
+
+}
